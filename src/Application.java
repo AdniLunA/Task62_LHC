@@ -35,12 +35,12 @@ public class Application {
             Class clazz = Class.forName("Component",true,urlClassLoader);
             System.out.println("clazz : " + clazz.toString());
 
-            Method method1 = clazz.getDeclaredMethod("getVersion");
-            System.out.println(method1);
+           // Method method1 = clazz.getDeclaredMethod("getVersion");
+           // System.out.println(method1);
 
             Object instance = clazz.getMethod("getInstance", new Class[0]).invoke(null,new Object[0]);
-            String version = (String)method1.invoke(instance);
-            System.out.println("version : " + version);
+            //String version = (String)method1.invoke(instance);
+           // System.out.println("version : " + version);
 
             Class[] parameterTypes = {String.class};
             Object port = clazz.getDeclaredField("port").get(instance);

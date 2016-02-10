@@ -26,8 +26,10 @@ public class BosonString {
     }
 
     public BosonString(){
-        int randomNumber;
-        for (int i = 0; i < stringLength; i++){
+        int randomNumber = rand.nextInt(36);
+        char firstSymbol = usuableSymbols.charAt(randomNumber);
+        bosonString = ""+firstSymbol;
+        for (int i = 1; i < stringLength; i++){
             randomNumber = rand.nextInt(36);
             bosonString += usuableSymbols.charAt(randomNumber);
         }

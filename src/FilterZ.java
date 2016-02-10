@@ -5,8 +5,8 @@ public class FilterZ implements IFilter {
 
         String xyzLessString = "";
         for (int i = 0; i < xyLessString.length();i++){
-            if (!(xyLessString.charAt(i) == 'x')){
-                xyLessString += xyLessString.charAt(i);
+            if (!(xyLessString.charAt(i) == 'z')){
+                xyzLessString += xyLessString.charAt(i);
             }
         }
         return  xyzLessString;
