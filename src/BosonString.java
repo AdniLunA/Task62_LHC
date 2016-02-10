@@ -19,6 +19,7 @@ public class BosonString {
         int charIndex = 0;
         for(int stringIndex = randomNumber; charIndex < 4; stringIndex++){
             foundChars[charIndex] = xyzLessString.charAt(stringIndex);
+            charIndex++;
         }
         String replacementString = new String(foundChars);
         return replacementString;

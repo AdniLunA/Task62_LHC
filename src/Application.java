@@ -2,6 +2,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.logging.Filter;
 
 public class Application {
     @SuppressWarnings({"rawtypes","unchecked"})
@@ -9,10 +10,19 @@ public class Application {
         int componentType = 1;
         String componentSubPath = "";
 
+        BosonString bosonStringObj = new BosonString();
+        FilterX xless = new FilterX();
+        FilterY yless = new FilterY();
+        FilterZ zless = new FilterZ();
+
+        String xyzLessString = zless.filterObjects(yless.filterObjects(xless.filterObjects(bosonStringObj.getBosonString())));
+
         if (componentType == 1)
             componentSubPath = "exchangeComponent01";
         else if (componentType == 2)
             componentSubPath = "exchangeComponent02";
+
+
 
         String userDirectory = System.getProperty("user.dir");
         String fileSeparator = System.getProperty("file.separator");
