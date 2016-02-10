@@ -33,7 +33,7 @@ public class Application {
             URL[] urls = {new File(componentSubPath + "/Component.jar").toURI().toURL()};
             URLClassLoader urlClassLoader = new URLClassLoader(urls,Application.class.getClassLoader());
             Class clazz = Class.forName("Component",true,urlClassLoader);
-            System.out.println("clazz : " + clazz.toString());
+            System.out.println("clazz : " + clazz.toString()+ "-" + clazz.hashCode());
 
            // Method method1 = clazz.getDeclaredMethod("getVersion");
            // System.out.println(method1);
