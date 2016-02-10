@@ -45,7 +45,7 @@ public class Application {
             Class[] parameterTypes = {String.class};
             Object port = clazz.getDeclaredField("port").get(instance);
             Method method2 = port.getClass().getMethod("method",parameterTypes);
-            Object[] parameterValues = {"dhbw"};
+            Object[] parameterValues = {"hibo"};
             String result = (String)method2.invoke(port,parameterValues);
             System.out.println("result : " + result);
         } catch (Exception e) {

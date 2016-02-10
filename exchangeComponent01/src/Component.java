@@ -42,6 +42,46 @@
  *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  */
 public class Component {
+
+    private static Component instance = new Component();
+    public Port port;
+
+    private Component() {
+        port = new Port();
+    }
+
+    public static Component getInstance() {
+        return instance;
+    }
+
+    public String getVersion() {
+        return "Debit Card";
+    }
+
+    public class Port implements IComponent {
+        private Method[] methods = getClass().getMethods();
+
+        public void printComponentVersion() {
+            System.out.println(getVersion() + "\n");
+        }
+
+        public String payment(double sum) {
+            return innerStringSearch(xyzLessString);
+        }
+
+
+        public void listMethods() {
+            System.out.println("--- public methods for " + getClass().getName());
+            for (int i = 0; i < methods.length; i++)
+                if (!methods[i].toString().contains("Object") && !methods[i].toString().contains("list"))
+                    System.out.println(methods[i]);
+            System.out.println("---");
+        }
+    }
+
+    private int innerStringSearch(String xyzLessString){
+
+
     private final int R;     // the radix
     private int[] right;     // the bad-character skip array
 
@@ -142,7 +182,7 @@ public class Component {
      * searches for the pattern string in the text string; and prints
      * the first occurrence of the pattern string in the text string.
      */
-    public static void main(String[] args) {
+ /*   public static void main(String[] args) {
         String pat = args[0];
         String txt = args[1];
         char[] pattern = pat.toCharArray();
@@ -164,7 +204,7 @@ public class Component {
         System.out.print("pattern: ");
         for (int i = 0; i < offset2; i++)
             System.out.print(" ");
-        System.out.println(pat);
+        System.out.println(pat);*/
     }
 }
 
