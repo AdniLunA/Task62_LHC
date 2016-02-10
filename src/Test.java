@@ -37,6 +37,7 @@ public class Test {
         System.out.println("insert hibo...");
         String testStringWithHibo = bosonStringObj.insertHibo(xyzLessString);
         System.out.println(testStringWithHibo);
+        System.out.println("Number of Symbols: "+testStringWithHibo.length());
 
     }
 }
