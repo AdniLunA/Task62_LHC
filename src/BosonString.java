@@ -11,7 +11,7 @@ public class BosonString {
         int randomNumber = rand.nextInt(xyzLessString.length()-4);
         String stringToReplace = findStringToReplace(xyzLessString,randomNumber);
         String hiboString = xyzLessString.replace(stringToReplace, "hibo");
-        System.out.println("Insertion of \"hibo\" complete:");
+        System.out.println("Insertion of \"hibo\" complete. Length = "+hiboString.length()+":");
         System.out.println(hiboString);
         return hiboString;
     }
@@ -36,7 +36,7 @@ public class BosonString {
             randomNumber = rand.nextInt(36);
             bosonString += usuableSymbols.charAt(randomNumber);
         }
-        System.out.println("BosonString createt:");
+        System.out.println("BosonString with lenght "+bosonString.length()+" createt:");
         System.out.println(bosonString);
     }
 

@@ -9,7 +9,7 @@ public class FilterZ implements IFilter {
                 xyzLessString += xyLessString.charAt(i);
             }
         }
-        System.out.println("xyz-Less BosonString:");
+        System.out.println("xyz-Less BosonString with length "+xyzLessString.length()+":");
         System.out.println(xyzLessString);
         return  xyzLessString;
     }

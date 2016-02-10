@@ -1,35 +1,3 @@
-
-/******************************************************************************
- *  Compilation:  javac Component.java
- *  Execution:    java Component pattern text
- *  Dependencies: StdOut.java
- *
- *  Reads in two strings, the pattern and the input text, and
- *  searches for the pattern in the input text using the
- *  Component algorithm.
- *
- *  % java Component abracadabra abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern:               abracadabra
- *
- *  % java Component rab abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern:         rab
- *
- *  % java Component bcara abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern:                                   bcara
- *
- *  % java Component rabrabracad abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern:                        rabrabracad
- *
- *  % java Component abacad abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern: abacad
- *
- ******************************************************************************/
-
 import java.lang.reflect.Method;
 
 /**
@@ -60,7 +28,7 @@ public class Component {
     }
 
     public String getVersion() {
-        return "Debit Card";
+        return "KMP";
     }
 
     public class Port implements IComponent {
@@ -70,7 +38,8 @@ public class Component {
             System.out.println(getVersion() + "\n");
         }
 
-        public String innerStringSearch(String pattern, String hiboString) {return innerStringSearch(pattern, hiboString);
+        public int stringSearch(String pattern, String hiboString) {
+            return innerStringSearch(pattern, hiboString);
         }
 
 
@@ -86,7 +55,7 @@ public class Component {
 
     private int innerStringSearch(String pattern, String hiboString) {
         KMP kmp = new KMP(pattern);
-        kmp.search(hiboString);
+        return kmp.search(hiboString);
     }
 
     }

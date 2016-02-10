@@ -1,3 +1,3 @@
 public interface IComponent {
-    String stringSearch(String pattern, String hiboString);
+    int stringSearch(String pattern, String hiboString);
 }

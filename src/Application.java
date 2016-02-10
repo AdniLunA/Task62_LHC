@@ -10,6 +10,11 @@ public class Application {
         int componentType = 1;
         String componentSubPath = "";
 
+        //Create Listener
+        ControlCenter controlCenter = new ControlCenter();
+        IPhysicianListener physician = new PhysicianListener();
+        controlCenter.setListener(physician);
+
         //****Creating Hibo String ****
         BosonString bosonStringObj = new BosonString();
         FilterX xless = new FilterX();
@@ -18,13 +23,13 @@ public class Application {
         String xyzLessString = zless.filterObjects(yless.filterObjects(xless.filterObjects(bosonStringObj.getBosonString())));
         String hiboString = bosonStringObj.insertHibo(xyzLessString);
         System.out.println();
-        //****Hibo String createt ****
+        //****Hibo String created ****
+
 
         if (componentType == 1)
             componentSubPath = "exchangeComponent01";
         else if (componentType == 2)
             componentSubPath = "exchangeComponent02";
-
 
 
         String userDirectory = System.getProperty("user.dir");
@@ -38,19 +43,20 @@ public class Application {
             Class clazz = Class.forName("Component",true,urlClassLoader);
             System.out.println("clazz : " + clazz.toString()+ "-" + clazz.hashCode());
 
-           // Method method1 = clazz.getDeclaredMethod("getVersion");
-           // System.out.println(method1);
+           Method method1 = clazz.getDeclaredMethod("getVersion");
+           System.out.println(method1);
 
             Object instance = clazz.getMethod("getInstance", new Class[0]).invoke(null,new Object[0]);
-            //String version = (String)method1.invoke(instance);
-            //System.out.println("version : " + version);
+            String version = (String)method1.invoke(instance);
+            System.out.println("version : " + version);
 
-            Class[] parameterTypes = {String.class};
+            Class[] parameterTypes = {String.class, String.class};
             Object port = clazz.getDeclaredField("port").get(instance);
-            Method method2 = port.getClass().getMethod("method",parameterTypes);
-            Object[] parameterValues = {"hibo"};
-            String result = (String)method2.invoke(port,parameterValues);
-            System.out.println("result : " + result);
+            Method method2 = port.getClass().getMethod("stringSearch",parameterTypes);
+            Object[] parameterValues = {"hibo", hiboString};
+            int result = (int)method2.invoke(port,parameterValues);
+            controlCenter.foundHibo(result);
+            //System.out.println("result : " + result);
         } catch (Exception e) {
             e.printStackTrace();
         }

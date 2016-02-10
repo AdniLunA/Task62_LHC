@@ -1,35 +1,3 @@
-/******************************************************************************
- *  Compilation:  javac Component.java
- *  Execution:    java Component pattern text
- *  Dependencies: StdOut.java
- *
- *  Reads in two strings, the pattern and the input text, and
- *  searches for the pattern in the input text using the
- *  bad-character rule part of the Boyer-Moore algorithm.
- *  (does not implement the strong good suffix rule)
- *
- *  % java Component abracadabra abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern:               abracadabra
- *
- *  % java Component rab abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern:         rab
- *
- *  % java Component bcara abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern:                                   bcara
- *
- *  % java Component rabrabracad abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern:                        rabrabracad
- *
- *  % java Component abacad abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern: abacad
- *
- ******************************************************************************/
-
 import java.lang.reflect.Method;
 
 /**
@@ -57,7 +25,7 @@ public class Component {
     }
 
     public String getVersion() {
-        return "Debit Card";
+        return "BoyerMoore";
     }
 
     public class Port implements IComponent {
@@ -67,7 +35,7 @@ public class Component {
             System.out.println(getVersion() + "\n");
         }
 
-        public String stringSearch(String pattern, String hiboString) {
+        public int stringSearch(String pattern, String hiboString) {
             return innerStringSearch(pattern, hiboString);
         }
 
@@ -81,10 +49,10 @@ public class Component {
         }
     }
 
-    private String innerStringSearch(String pattern, String hiboString) {
+    private int innerStringSearch(String pattern, String hiboString) {
         BoyerMoore boyerMoore = new BoyerMoore(pattern);
-        boyerMoore.search(hiboString);
-        return "a";
+        return boyerMoore.search(hiboString);
+
     }
 }
 

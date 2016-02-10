@@ -4,6 +4,9 @@ cd build
 "C:\Program Files\Java\jdk1.8.0_66\bin\jar" -cvf ..\Component.jar IComponent.class
 "C:\Program Files\Java\jdk1.8.0_66\bin\jar" -uvf ..\Component.jar Component.class
 "C:\Program Files\Java\jdk1.8.0_66\bin\jar" -uvf ..\Component.jar Component$Port.class
+"C:\Program Files\Java\jdk1.8.0_66\bin\jar" -uvf ..\Component.jar BoyerMoore.class
+
+
 
 "C:\Program Files\Java\jdk1.8.0_66\bin\jar" -tvf ..\Component.jar
 pause
