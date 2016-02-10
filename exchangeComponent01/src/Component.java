@@ -67,8 +67,8 @@ public class Component {
             System.out.println(getVersion() + "\n");
         }
 
-        public String stringSearch(String pattern) {
-            return innerStringSearch(pattern);
+        public String stringSearch(String pattern, String hiboString) {
+            return innerStringSearch(pattern, hiboString);
         }
 
 
@@ -81,9 +81,9 @@ public class Component {
         }
     }
 
-    private String innerStringSearch(String pattern) {
+    private String innerStringSearch(String pattern, String hiboString) {
         BoyerMoore boyerMoore = new BoyerMoore(pattern);
-        boyerMoore.search(  )
+        boyerMoore.search(hiboString);
         return "a";
     }
 }

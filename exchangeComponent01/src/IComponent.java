@@ -1,4 +1,4 @@
 public interface IComponent {
-     String stringSearch(String xyzLessString);
+     String stringSearch(String pattern, String hiboString);
 
 }

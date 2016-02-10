@@ -10,12 +10,15 @@ public class Application {
         int componentType = 1;
         String componentSubPath = "";
 
+        //****Creating Hibo String ****
         BosonString bosonStringObj = new BosonString();
         FilterX xless = new FilterX();
         FilterY yless = new FilterY();
         FilterZ zless = new FilterZ();
-
         String xyzLessString = zless.filterObjects(yless.filterObjects(xless.filterObjects(bosonStringObj.getBosonString())));
+        String hiboString = bosonStringObj.insertHibo(xyzLessString);
+        System.out.println();
+        //****Hibo String createt ****
 
         if (componentType == 1)
             componentSubPath = "exchangeComponent01";
@@ -40,7 +43,7 @@ public class Application {
 
             Object instance = clazz.getMethod("getInstance", new Class[0]).invoke(null,new Object[0]);
             //String version = (String)method1.invoke(instance);
-           // System.out.println("version : " + version);
+            //System.out.println("version : " + version);
 
             Class[] parameterTypes = {String.class};
             Object port = clazz.getDeclaredField("port").get(instance);
